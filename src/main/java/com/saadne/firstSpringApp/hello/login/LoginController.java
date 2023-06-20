@@ -32,4 +32,8 @@ public class LoginController {
 		model.put("password",password);
 		return "welcome";
 	}
+	@RequestMapping("welcome")
+	public String welcome() {
+		return "welcome";
+	}
 }

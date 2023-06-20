@@ -3,6 +3,8 @@ package com.saadne.firstSpringApp.todo;
 import java.time.LocalDate;
 import java.util.List;
 
+import jakarta.validation.constraints.Size;
+
 public class Todo {
 	
 	
@@ -11,6 +13,8 @@ public class Todo {
 	
 	private int id;
 	private String name;
+	
+	@Size(min=10,message="Enter atlest 10 character")
 	private String description;
 	private LocalDate targetDate;
 	private boolean done;
