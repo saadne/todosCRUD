@@ -3,32 +3,34 @@ package com.saadne.firstSpringApp.todo;
 import java.time.LocalDate;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Size;
 
+@Entity
 public class Todo {
-	
-	
 	private static List<Todo> todos;
-	
-	
+	@Id
+	@GeneratedValue
 	private int id;
-	private String name;
-	
+	private String username;
 	@Size(min=10,message="Enter atlest 10 character")
 	private String description;
 	private LocalDate targetDate;
 	private boolean done;
-	public Todo(int id, String name, String description, LocalDate targetDate, boolean done) {
+	public Todo(int id, String username, String description, LocalDate targetDate, boolean done) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.username = username;
 		this.description = description;
 		this.targetDate = targetDate;
 		this.done = done;
 	}
+	public Todo() {}
 	@Override
 	public String toString() {
-		return "Todo [id=" + id + ", name=" + name + ", description=" + description + ", targetDate=" + targetDate
+		return "Todo [id=" + id + ", name=" + username + ", description=" + description + ", targetDate=" + targetDate
 				+ ", done=" + done + "]";
 	}
 	public int getId() {
@@ -37,11 +39,11 @@ public class Todo {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getDescription() {
 		return description;
@@ -61,6 +63,4 @@ public class Todo {
 	public void setDone(boolean done) {
 		this.done = done;
 	}
-
-	
 }
